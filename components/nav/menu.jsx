@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useEffect } from "react";
+import Link from "next/link";
 
 export default function Menu({ icon, textColor }) {
   const scrollTo = (selector) => {
@@ -11,7 +12,7 @@ export default function Menu({ icon, textColor }) {
 
   return (
     <>
-      <a href="/"><Image src={icon} className="w-16" alt="icone" /></a>
+      <Link href="/"><Image src={icon} className="w-16" alt="icone" /></Link>
       <nav>
         <ul className={`text-lg md:flex hidden space-x-4`}>
           <li onClick={() => scrollTo('#nav')}><a className="border-b-2 border-yellow-400" href="#">Ínicio</a></li>
