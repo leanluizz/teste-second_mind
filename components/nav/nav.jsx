@@ -23,7 +23,7 @@ export default function Nav({ src, textColor }) {
   }, []);
 
   return (
-    <div id='nav' className={`${background} flex items-center justify-between sm:justify-around pt-2 sticky top-0 z-50`}>
+    <div id='nav' className={`${background} flex items-center justify-around sm:justify-around pt-2 sticky top-0 z-50`}>
       <Menu icon={src} textColor={textColor} />
     </div>
   );
