@@ -1,0 +1,11 @@
+.textGradient {
+    font-weight: 500;
+    font-family: 'Arial', sans-serif;  /* Fonte do texto */
+    color: rgb(255, 204, 51);           /* Cor principal do texto (amarelada suave) */
+    text-shadow:
+      0 0 5px rgb(255, 185, 51),        /* Brilho suave na cor mais escura */
+      0 0 10px rgb(255, 185, 51),       /* Brilho médio na cor mais escura */
+      0 0 20px rgb(255, 204, 51),       /* Brilho na cor mais clara */
+      0 0 30px rgb(255, 204, 51),       /* Brilho mais intenso na cor mais clara */
+      0 0 40px rgb(255, 204, 51);       /* Efeito final de neon na cor mais clara */
+}
