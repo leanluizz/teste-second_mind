@@ -18,10 +18,10 @@ export default function Menu({ icon, textColor }) {
       <nav>
         {/* Menu para tela maior */}
         <ul className={`text-lg md:flex hidden space-x-4`}>
-          <li onClick={() => scrollTo('#nav')}><a className="border-b-2 border-yellow-400" href="/">Ínicio</a></li>
+          <li onClick={() => scrollTo('#nav')}><Link className="border-b-2 border-yellow-400" href="/">Ínicio</Link></li>
           <li onClick={() => scrollTo('#sobre')}><a className="border-b-2 border-yellow-400" href="#">Sobre</a></li>
           <li onClick={() => scrollTo('#agiletrack')}><a className="border-b-2 border-yellow-400" href="#">Agile Track</a></li>
-          <li><a className="border-b-2 border-yellow-400" href="/servicos">Serviços</a></li>
+          <li><Link className="border-b-2 border-yellow-400" href="/servicos">Serviços</Link></li>
           <li onClick={() => scrollTo('#trabalheConosco')}><a className="border-b-2 border-yellow-400" href="#">Trabalhe Conosco</a></li>
         </ul>
 
@@ -55,10 +55,10 @@ export default function Menu({ icon, textColor }) {
 
           {/* Menu links para mobile */}
           <ul className="p-3 text-lg flex flex-col items-start space-y-10">
-            <li onClick={() => scrollTo('#nav')}><a className="border-b-2 border-yellow-400" href="/">Ínicio</a></li>
+            <li onClick={() => scrollTo('#nav')}><Link className="border-b-2 border-yellow-400" href="/">Ínicio</Link></li>
             <li onClick={() => scrollTo('#sobre')}><a className="border-b-2 border-yellow-400" href="#">Sobre</a></li>
             <li onClick={() => scrollTo('#agiletrack')}><a className="border-b-2 border-yellow-400" href="#">Agile Track</a></li>
-            <li><a className="border-b-2 border-yellow-400" href="/servicos">Serviços</a></li>
+            <li><Link className="border-b-2 border-yellow-400" href="/servicos">Serviços</Link></li>
             <li onClick={() => scrollTo('#trabalheConosco')}><a className="border-b-2 border-yellow-400" href="#">Trabalhe Conosco</a></li>
           </ul>
         </div>
