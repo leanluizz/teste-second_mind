@@ -16,7 +16,17 @@ import Footer from '../components/footer/footer.jsx';
 import Icon from '../assets/images/header/icon.png';
 
 export default function Services () {
-    const [Content, setContent] = useState()
+    const [Content, setContent] = useState();
+
+    const scrollTo = () => {
+        if (window.innerWidth <= 767) {
+        const section = process.browser ? document.querySelector('#sobre_service') : null; 
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+      };
+
     const ApiComponent = () => {
         return (
             <div>
@@ -85,15 +95,15 @@ export default function Services () {
       <Nav src={Icon} textColor={styleTexts.textGradient} />
         <h1 className="md:text-5xl text-xl font-bold p-12">Selecione um dos serviços para saber mais</h1>
         <div className='grid md:space-y-0 space-y-10 md:flex items-center justify-around'>
-            <button onClick={() => setContent(ApiComponent)} className='overflow-hidden animate__zoomIn animate__animated font-bold p-3 bg-gradient-to-b from-yellow-600 via-bg-yellow-500 to bg-yellow-400 rounded-lg w-48 h-12 '>API</button>
-            <button onClick={() => setContent(AplicacoesWebComponent)} className='overflow-hidden animate__zoomIn animate__animated font-bold p-3 bg-gradient-to-b from-yellow-600 via-bg-yellow-500 to bg-yellow-400 rounded-lg w-48 h-12 '>Aplicações Web</button>
-            <button onClick={() => setContent(AppComponent)} className='overflow-hidden animate__zoomIn animate__animated font-bold p-3 bg-gradient-to-b from-yellow-600 via-bg-yellow-500 to bg-yellow-400 rounded-lg w-48 h-12 '>Aplicativos</button>
-            <button onClick={() => setContent(BigDataComponent)} className='overflow-hidden animate__zoomIn animate__animated font-bold p-3 bg-gradient-to-b from-yellow-600 via-bg-yellow-500 to bg-yellow-400 rounded-lg w-48 h-12 '>Big Data</button>
-            <button onClick={() => setContent(IntegracoesDoSistemaComponent)} className='overflow-hidden animate__zoomIn animate__animated font-bold p-3 bg-gradient-to-b from-yellow-600 via-bg-yellow-500 to bg-yellow-400 rounded-lg w-48 h-12 '>Integrações de Sistema</button>
-            <button onClick={() => setContent(ReportsComponent)} className='overflow-hidden animate__zoomIn animate__animated font-bold p-3 bg-gradient-to-b from-yellow-600 via-bg-yellow-500 to bg-yellow-400 rounded-lg w-48 h-12 '>Reports</button>
+            <button onClick={() => {setContent(ApiComponent) ,scrollTo()}} className='overflow-hidden animate__zoomIn animate__animated font-bold p-3 bg-gradient-to-b from-yellow-600 via-bg-yellow-500 to bg-yellow-400 rounded-lg w-48 h-12 '>API</button>
+            <button onClick={() => {setContent(AplicacoesWebComponent),scrollTo()}} className='overflow-hidden animate__zoomIn animate__animated font-bold p-3 bg-gradient-to-b from-yellow-600 via-bg-yellow-500 to bg-yellow-400 rounded-lg w-48 h-12 '>Aplicações Web</button>
+            <button onClick={() => {setContent(AppComponent),scrollTo()}} className='overflow-hidden animate__zoomIn animate__animated font-bold p-3 bg-gradient-to-b from-yellow-600 via-bg-yellow-500 to bg-yellow-400 rounded-lg w-48 h-12 '>Aplicativos</button>
+            <button onClick={() => {setContent(BigDataComponent),scrollTo()}} className='overflow-hidden animate__zoomIn animate__animated font-bold p-3 bg-gradient-to-b from-yellow-600 via-bg-yellow-500 to bg-yellow-400 rounded-lg w-48 h-12 '>Big Data</button>
+            <button onClick={() => {setContent(IntegracoesDoSistemaComponent),scrollTo()}} className='overflow-hidden animate__zoomIn animate__animated font-bold p-3 bg-gradient-to-b from-yellow-600 via-bg-yellow-500 to bg-yellow-400 rounded-lg w-48 h-12 '>Integrações de Sistema</button>
+            <button onClick={() => {setContent(ReportsComponent),scrollTo()}} className='overflow-hidden animate__zoomIn animate__animated font-bold p-3 bg-gradient-to-b from-yellow-600 via-bg-yellow-500 to bg-yellow-400 rounded-lg w-48 h-12 '>Reports</button>
         </div>
         <div className='md:m-12 md:p-12 '>
-            <h2 className="text-3xl font-bold p-5 md:text-start">Sobre</h2>
+            <h2 id='sobre_service' className="text-3xl font-bold p-5 md:text-start">Sobre</h2>
             <p className='text-center text-start p-5'>{Content}</p>
         </div>
         <Footer 

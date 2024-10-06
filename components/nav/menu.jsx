@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Menu({ icon, textColor }) {
+export default function Menu({ icon }) {
   const scrollTo = (selector) => {
     const section = process.browser ? document.querySelector(selector) : null; 
     if (section) {
@@ -16,7 +16,7 @@ export default function Menu({ icon, textColor }) {
     <>
       <Link href="/"><Image src={icon} className="w-16" alt="icone" /></Link>
       <nav>
-        {/* Menu para tela maior */}
+        
         <ul className={`text-lg md:flex hidden space-x-4`}>
           <li onClick={() => scrollTo('#nav')}><Link className="border-b-2 border-yellow-400" href="/">Ínicio</Link></li>
           <li onClick={() => scrollTo('#sobre')}><a className="border-b-2 border-yellow-400" href="#">Sobre</a></li>
@@ -25,7 +25,7 @@ export default function Menu({ icon, textColor }) {
           <li onClick={() => scrollTo('#trabalheConosco')}><a className="border-b-2 border-yellow-400" href="#">Trabalhe Conosco</a></li>
         </ul>
 
-        {/* Ícone de hambúrguer */}
+        
         <svg 
           onClick={() => setIsOpen(true)} 
           xmlns="http://www.w3.org/2000/svg" 
@@ -37,7 +37,7 @@ export default function Menu({ icon, textColor }) {
           <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
         </svg>
 
-        {/* Menu móvel com transição */}
+        
         <div className={`fixed top-0 right-0 w-full max-w-md bg-white h-screen transition-all duration-500 transform ${isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}`}>
           <div className="flex justify-between items-center p-4">
             <Link href="/"><Image src={icon} className="w-16" alt="icone" /></Link>
@@ -53,7 +53,7 @@ export default function Menu({ icon, textColor }) {
             </svg>
           </div>
 
-          {/* Menu links para mobile */}
+          
           <ul className="p-3 text-lg flex flex-col items-start space-y-10">
             <li onClick={() => scrollTo('#nav')}><Link className="border-b-2 border-yellow-400" href="/">Ínicio</Link></li>
             <li onClick={() => scrollTo('#sobre')}><a className="border-b-2 border-yellow-400" href="#">Sobre</a></li>
