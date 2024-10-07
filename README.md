@@ -77,7 +77,8 @@ A estrutura do projeto segue a organização padrão de um projeto Next.js:
 ├── assets/                # Arquivos estatícos como imagens, vídeos, gifs
 ├── components/            # Componentes reutilizáveis
 ├── pages/ 
-│   └── api/  
+│   └── api/
+│          ├── firebase.js # Auth do Firebase 
 │   ├── _app.jsx           # Configuração
 │   ├── index.jsx          # Página inicial
 │   ├── servicos.jsx       # Página de serviços
