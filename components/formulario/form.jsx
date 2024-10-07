@@ -10,20 +10,36 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { useState } from 'react';
 
 export default function Formulario({ icon }) {
-  
+
   //Dados a serem enviados pro firestore
-  const [status, setstatus] = useState()
+  const [status, setstatus] = useState('');
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [celular, setCelular] = useState('');
   const [mensagem, setMensagem] = useState('');
   const [curriculo, setCurriculo] = useState(null);
 
+  // Expressão regular para validar números de telefone (brasileiro)
+  const telefoneRegex = /^\(?\d{2}\)?[\s-]?9?\d{4}[\s-]?\d{4}$/;
+
   // Função para enviar dados para Firestore
   const Submit = async (e) => {
     e.preventDefault();
 
+    // Verificar se o número de celular é válido
+    if (!telefoneRegex.test(celular)) {
+      setstatus('Por favor, insira um número de telefone válido.');
+      setTimeout(() => {
+        setstatus('');
+      }, 2000);
+      return;
+    }
+
+    // Definir o status como "Enviando dados..."
+    setstatus('Enviando dados...');
+
     try {
+      // Enviar dados principais para o Firestore
       await addDoc(collection(db, 'contatos'), {
         nome,
         email,
@@ -47,14 +63,16 @@ export default function Formulario({ icon }) {
         });
       }
 
-      setstatus('Dados enviados com sucesso!')
+      // Atualizar o status para "Dados enviados com sucesso!"
+      setstatus('Dados enviados com sucesso!');
       setTimeout(() => {
-        setstatus('')
+        setstatus('');
       }, 2000);
     } catch (error) {
-      setstatus('Erro ao enviar os dados!')
+      // Atualizar o status para "Erro ao enviar os dados!" em caso de falha
+      setstatus('Erro ao enviar os dados!');
       setTimeout(() => {
-        setstatus('')
+        setstatus('');
       }, 2000);
     }
   };
