@@ -1,24 +1,25 @@
 import { useState, useEffect } from 'react';
+
+//Component
 import Menu from './menu';
 
 export default function Nav({ src, textColor }) {
   const [background, setBackground] = useState('bg');
 
   useEffect(() => {
-    const handleScroll = () => {
+    const Scroll = () => {
       if (window.scrollY > 50) {
-        setBackground('bg-white'); 
+        setBackground('bg-white');
       } else {
-        setBackground('bg'); 
+        setBackground('bg');
       }
     };
 
     // Adiciona o listener de scroll
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', Scroll);
 
-    // Remove o listener quando o componente for desmontado
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', Scroll);
     };
   }, []);
 

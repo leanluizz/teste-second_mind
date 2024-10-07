@@ -34,7 +34,7 @@ import Hexagon from '../assets/images/main/section 4/hexagon.jpg';
 import PrefeituraDeQueluzito from '../assets/images/main/section 4/cropped-prefeitura_queluzito.png';
 import Cropped from '../assets/images/main/section 4/cropped-logotipo-vertical-esdb2.png';
 import Instaletec from '../assets/images/main/section 4/cropped-instaletec.jpg';
-import GDois from '../assets/images/main/section 4/cropped-g2.png'; 
+import GDois from '../assets/images/main/section 4/cropped-g2.png';
 import DocfDois from '../assets/images/main/section 4/cropped-docf2.png';
 import Asteseg from '../assets/images/main/section 4/cropped-asteseg.png';
 import Aipass from '../assets/images/main/section 4/cropped-aipass.png';
@@ -65,30 +65,30 @@ export default function Home() {
         />
         <AgileTrack agiletrack={ImageAgileTrack} />
         <Clientes
-        imgOne={MedicoSemFila}
-        imgTwo={Unimed}
-        imgThree={Conexsus}
-        imgFour={Brain2}
-        imgFive={Hexagon}
-        imgSix={PrefeituraDeQueluzito}
-        imgSeven={Cropped}
-        imgEight={Instaletec}
-        imgNine={GDois}
-        imgTen={DocfDois}
-        imgEleven={Asteseg}
-        imgTwelve={Aipass}
+          imgOne={MedicoSemFila}
+          imgTwo={Unimed}
+          imgThree={Conexsus}
+          imgFour={Brain2}
+          imgFive={Hexagon}
+          imgSix={PrefeituraDeQueluzito}
+          imgSeven={Cropped}
+          imgEight={Instaletec}
+          imgNine={GDois}
+          imgTen={DocfDois}
+          imgEleven={Asteseg}
+          imgTwelve={Aipass}
         />
         <Feedback
-        brainDepoimento={Brain2}
-        conexusDepoimento={Conexsus}
-        astesegDepoimento={Asteseg}
-        p={styleMain.cardP}
+          brainDepoimento={Brain2}
+          conexusDepoimento={Conexsus}
+          astesegDepoimento={Asteseg}
+          p={styleMain.cardP}
         />
       </main>
       <Form icon={Icon} />
-      <Footer 
-      icon={Icon}
-      style={styles.footer}
+      <Footer
+        icon={Icon}
+        style={styles.footer}
       />
     </div>
   )

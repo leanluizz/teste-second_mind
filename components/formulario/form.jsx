@@ -1,23 +1,29 @@
-import { db, storage } from '@/pages/api/firebase'; // Firestore e Storage já configurados
-import { collection, addDoc } from 'firebase/firestore'; // Firestore
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'; // Firebase Storage
-import { useState } from 'react';
+//Next
 import Image from 'next/image';
 
+//Firestore
+import { db, storage } from '@/pages/api/firebase';
+import { collection, addDoc } from 'firebase/firestore';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+
+//React Hooks
+import { useState } from 'react';
+
 export default function Formulario({ icon }) {
+  
+  //Dados a serem enviados pro firestore
   const [status, setstatus] = useState()
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [celular, setCelular] = useState('');
   const [mensagem, setMensagem] = useState('');
-  const [curriculo, setCurriculo] = useState(null); // Para armazenar o arquivo
+  const [curriculo, setCurriculo] = useState(null);
 
   // Função para enviar dados para Firestore
-  const handleSubmit = async (e) => {
+  const Submit = async (e) => {
     e.preventDefault();
 
     try {
-      // Enviar os dados para o Firestore
       await addDoc(collection(db, 'contatos'), {
         nome,
         email,
@@ -26,11 +32,11 @@ export default function Formulario({ icon }) {
       });
 
       if (curriculo) {
-        // Se o usuário tiver anexado um currículo, enviá-lo para o Firebase Storage
+        // Se o usuário tiver anexado um currículo, enviá-lo pro Firebase Storage
         const storageRef = ref(storage, `curriculos/${curriculo.name}`);
         await uploadBytes(storageRef, curriculo);
 
-        // Obter a URL de download do arquivo
+        // Obter a URL e enviar pro FireStore
         const downloadURL = await getDownloadURL(storageRef);
 
         // Armazenar a URL do currículo no Firestore
@@ -46,7 +52,6 @@ export default function Formulario({ icon }) {
         setstatus('')
       }, 2000);
     } catch (error) {
-      console.error('Erro ao enviar dados:', error);
       setstatus('Erro ao enviar os dados!')
       setTimeout(() => {
         setstatus('')
@@ -55,7 +60,7 @@ export default function Formulario({ icon }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} id="trabalheConosco" className="bg-zinc-900 flex flex-col justify-center p-12">
+    <form onSubmit={Submit} id="trabalheConosco" className="bg-zinc-900 flex flex-col justify-center p-12">
       <Image src={icon} className="w-16 md:m-0 m-auto" alt="icone" />
       <h1 className="text-4xl font-bold text-center text-yellow-500">Entre em contato com nossa equipe</h1>
       <div className="flex flex-col space-y-10 md:p-12 m-auto">
