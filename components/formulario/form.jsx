@@ -19,7 +19,7 @@ export default function Formulario({ icon }) {
   const [mensagem, setMensagem] = useState('');
   const [curriculo, setCurriculo] = useState(null);
 
-  // Expressão regular para validar números de telefone (brasileiro)
+  // Expressão regular para validar números de telefone
   const telefoneRegex = /^\(?\d{2}\)?[\s-]?9?\d{4}[\s-]?\d{4}$/;
 
   // Função para enviar dados para Firestore
@@ -35,7 +35,6 @@ export default function Formulario({ icon }) {
       return;
     }
 
-    // Definir o status como "Enviando dados..."
     setstatus('Enviando dados...');
 
     try {
