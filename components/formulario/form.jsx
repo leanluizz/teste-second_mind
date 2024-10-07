@@ -1,4 +1,4 @@
-import { db, storage } from '@/pages/api/hello'; // Firestore e Storage já configurados
+import { db, storage } from '@/pages/api/firebase'; // Firestore e Storage já configurados
 import { collection, addDoc } from 'firebase/firestore'; // Firestore
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'; // Firebase Storage
 import { useState } from 'react';
