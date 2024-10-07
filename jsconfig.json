@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",                // Define a pasta base
+      "paths": {
+        "@/pages/*": ["pages/*"],     // Cria um alias para a pasta "pages"
+        "@/components/*": ["components/*"],  // Exemplo para components
+        "@/utils/*": ["utils/*"]      // Exemplo para utils
+      }
+    }
+  }
+  
